@@ -2,7 +2,8 @@
 
 <div class="col-md-4 position-relative">
 <label for="validationTooltip01" class="form-label">Código:</label>
-<input type="text" class="form-control" id="validationTooltip01" name="code" placeholder="Ingrese su código..." value="{{ isset($student->code )?$student->code:'' }}" required>
+<input type="text" pattern="SM.+|sm.+" class="form-control" id="validationTooltip01" name="code" placeholder="Ingrese su código.sm.." minlength="10" maxlength="10"value="{{ isset($student->code )?$student->code:'' }}"
+title="Debe comenzar con sm"required>
 <div class="invalid-tooltip">
       ¡Ingrese su código!
     </div>
@@ -11,7 +12,8 @@
 
   <div class="col-md-4 position-relative">
 <label for="validationTooltip02" class="form-label">Nombre:</label>
-<input type="text" class="form-control" id="validationTooltip02" name="name" placeholder="Ingrese su nombre aquí..." value="{{ isset($student->name )?$student->name:'' }}" required>
+<input type="text" pattern="[A-Z]{1}.+" class="form-control" id="validationTooltip02" name="name" placeholder="Ingrese su nombre aquí..." maxlength="15" value="{{ isset($student->name )?$student->name:'' }}" 
+  title="Primera letra mayuscula" required>
 <div class="invalid-tooltip">
       ¡Ingrese su nombre!
     </div>
@@ -20,7 +22,8 @@
 
 <div class="col-md-4 position-relative">
 <label for="validationTooltip03" class="form-label">Apellido:</label>
-<input type="text" name="lastname" placeholder="Ingrese su apellido aquí..." class="form-control" id="validationTooltip03" value="{{ isset($student->lastname )?$student->lastname:'' }}" required>
+<input type="text" pattern="[A-Z]{1}.+" name="lastname" placeholder="Ingrese su apellido aquí..." class="form-control" id="validationTooltip03" maxlength="15"value="{{ isset($student->lastname )?$student->lastname:'' }}" 
+title="Primera letra mayuscula" required>
 <div class="valid-tooltip">
       ¡Ingrese su apellido!
     </div>
@@ -29,7 +32,7 @@
 
   <div class="col-md-4 position-relative">
 <label for="validationTooltip04" class="form-label">Dirección:</label>
-<input type="text" name="address" placeholder="Ingrese su dirección aquí..." class="form-control" id="validationTooltip04" value="{{ isset ($student->address)?$student->address:''}}" required>
+<input type="text" name="address" placeholder="Ingrese su dirección aquí..." class="form-control" id="validationTooltip04" maxlength="30" value="{{ isset ($student->address)?$student->address:''}}" required>
 <div class="valid-tooltip">
       ¡Ingrese su dirección!
     </div>
@@ -38,8 +41,8 @@
 
   <div class="col-md-4 position-relative">
 <label for="validationTooltip05" class="form-label">Teléfono:</label>
-<input type="text" pattern="^503\{8}$" name="telephone" placeholder="Ej. 503 70456034" class="form-control" id="validationTooltip05" value="{{ isset($student->telephone )?$student->telephone:'' }}" 
-title="El número de teléfono no debe contener letras ni símbolos" required>
+<input type="integer" pattern="^[7|6]\d{7}$" name="telephone" placeholder="Ej. 70456034" class="form-control" id="validationTooltip05" value="{{ isset($student->telephone )?$student->telephone:'' }}" 
+title="El número de teléfono no debe contener letras ni símbolos y debe comenzar con el número 6 o 7" minlength="8" maxlength="8" required>
 <div class="valid-tooltip">
       ¡Ingrese su teléfono!
     </div>
@@ -48,7 +51,8 @@ title="El número de teléfono no debe contener letras ni símbolos" required>
 
   <div class="col-md-4 position-relative">
 <label for="validationTooltip06" class="form-label">Correo electrónico:</label>
-<input type="text" name="email" placeholder="Ej. nombre@gmail.com" class="form-control" id="validationTooltip06" value="{{ isset($student->email )?$student->email:'' }}" required>
+<input type="text" pattern=".+@gmail\.com" name="email" placeholder="Ej. nombre@gmail.com" class="form-control" id="validationTooltip06" value="{{ isset($student->email )?$student->email:'' }}"
+title="El correo electrónico debe contener @gmail.com" required>
 <div class="valid-tooltip">
       ¡Ingrese su correo electrónico!
     </div>
